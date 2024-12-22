@@ -66,6 +66,7 @@
             display: flex;
             gap: 10px;
             flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+            z-index: 10; /* Ensure buttons appear above everything else */
         }
         .difficulty-button {
             padding: 10px 20px;
@@ -78,6 +79,7 @@
             transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
             min-width: 80px; /* Ensure buttons are big enough */
             text-align: center;
+            display: inline-block;
         }
         .difficulty-button:hover {
             background-color: rgba(255, 255, 255, 0.4);
@@ -93,9 +95,10 @@
                 top: 15px;
             }
             .difficulty-buttons {
-                top: auto;
-                bottom: 20px; /* Position buttons at the bottom on mobile */
-                right: 20px;
+                top: 15px; /* Keep buttons at the top */
+                right: 15px; /* Ensure buttons are not too close to the edge */
+                flex-wrap: nowrap; /* Prevent wrapping of buttons */
+                gap: 8px; /* Adjust button spacing */
             }
             .difficulty-button {
                 padding: 8px 16px;
