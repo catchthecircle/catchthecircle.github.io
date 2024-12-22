@@ -27,7 +27,8 @@
         .game-container {
             position: relative;
             width: 100vw;
-            height: 100vh;
+            height: 100vh; /* Ensure the container takes full height */
+            padding-top: 60px; /* Space for the score and buttons */
             overflow: hidden;
         }
         .moving-box {
@@ -95,11 +96,12 @@
         @media (max-width: 600px) {
             .score {
                 font-size: 1.5rem; /* Make the score smaller on mobile */
-                top: 15px;
+                top: 10px;
+                left: 10px;
             }
             .difficulty-buttons {
-                top: 15px; /* Keep buttons at the top */
-                right: 15px; /* Ensure buttons are not too close to the edge */
+                top: 10px; /* Keep buttons at the top */
+                right: 10px; /* Ensure buttons are not too close to the edge */
                 flex-wrap: nowrap; /* Prevent wrapping of buttons */
                 gap: 8px; /* Adjust button spacing */
             }
