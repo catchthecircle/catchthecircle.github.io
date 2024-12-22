@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catch the Box</title>
     <style>
         * {
@@ -10,16 +10,13 @@
             padding: 0;
             box-sizing: border-box;
         }
-        html, body {
-            height: 100%; /* Ensure the body and html take full height */
-            overflow: hidden; /* Disable scrolling */
-        }
         body {
             font-family: 'Arial', sans-serif;
+            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100%;
+            height: 100vh;
             color: white;
             background-color: #3498db; /* Start with Easy's color */
             transition: background-color 0.5s ease;
@@ -27,8 +24,7 @@
         .game-container {
             position: relative;
             width: 100vw;
-            height: 100vh; /* Ensure the container takes full height */
-            padding-top: 60px; /* Space for the score and buttons */
+            height: 100vh;
             overflow: hidden;
         }
         .moving-box {
@@ -69,8 +65,6 @@
             right: 20px;
             display: flex;
             gap: 10px;
-            flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
-            z-index: 10; /* Ensure buttons appear above everything else */
         }
         .difficulty-button {
             padding: 10px 20px;
@@ -81,9 +75,6 @@
             color: white;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
-            min-width: 80px; /* Ensure buttons are big enough */
-            text-align: center;
-            display: inline-block;
         }
         .difficulty-button:hover {
             background-color: rgba(255, 255, 255, 0.4);
@@ -91,25 +82,6 @@
         }
         .difficulty-button.active {
             opacity: 0.6;
-        }
-        /* Mobile responsiveness */
-        @media (max-width: 600px) {
-            .score {
-                font-size: 1.5rem; /* Make the score smaller on mobile */
-                top: 10px;
-                left: 10px;
-            }
-            .difficulty-buttons {
-                top: 10px; /* Keep buttons at the top */
-                right: 10px; /* Ensure buttons are not too close to the edge */
-                flex-wrap: nowrap; /* Prevent wrapping of buttons */
-                gap: 8px; /* Adjust button spacing */
-            }
-            .difficulty-button {
-                padding: 8px 16px;
-                font-size: 0.9rem;
-                min-width: 70px; /* Adjust button size on mobile */
-            }
         }
     </style>
 </head>
@@ -199,18 +171,6 @@
 
         // Initialize the game on page load with "Easy" mode
         window.onload = startEasyMode;
-
-        // Adjust box move logic for Hard mode (slight pause for clicking)
-        setInterval(() => {
-            if (moveInterval === 400) {
-                // In hard mode, delay the movement slightly to allow for clicks
-                setTimeout(() => {
-                    moveBox();
-                }, 150); // Small delay before moving the box
-            } else {
-                moveBox(); // Regular move logic for Easy and Medium modes
-            }
-        }, moveInterval);
     </script>
 </body>
 </html>
